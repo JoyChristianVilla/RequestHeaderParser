@@ -1,7 +1,6 @@
 //require all the necessary modules
 var express = require('express');
 var app = express();
-var ip = require('ip');
 var accepts = require('accepts');
 var os = require('os');
 //When there is a get request, this function will run
@@ -21,7 +20,7 @@ app.get('/', function(req, res) {
   //create the object that will be sent as JSON
   var obj = {
     //use the ip module to get the ip address
-    ipaddress: ip.address(),
+    ipaddress: req.ip,
     //get the first language in the array returned by the languages method
     language: accept.languages()[0],
     //concatenate name with the version of the OS and its architecture
